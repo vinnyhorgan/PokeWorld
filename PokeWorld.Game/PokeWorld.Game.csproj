@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Humper" Version="0.5.8" />
     <PackageReference Include="ImGui.NET" Version="1.88.0" />
     <PackageReference Include="Raylib-cs" Version="4.2.0.1" />
   </ItemGroup>

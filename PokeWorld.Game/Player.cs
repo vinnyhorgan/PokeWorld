@@ -1,4 +1,5 @@
-﻿using Raylib_cs;
+﻿using Humper.Responses;
+using Raylib_cs;
 using System.Numerics;
 
 namespace PokeWorld.Game
@@ -56,8 +57,7 @@ namespace PokeWorld.Game
             else if (velocity.X > 0)
                 Face(Direction.E);
 
-            _x += velocity.X;
-            _y += velocity.Y;
+            _collider.Move(_x + velocity.X, _y + velocity.Y, (collision) => CollisionResponses.Slide);
 
             base.Update(dt);
         }

@@ -1,4 +1,5 @@
-﻿using Raylib_cs;
+﻿using Humper;
+using Raylib_cs;
 
 namespace PokeWorld.Game
 {
@@ -22,6 +23,7 @@ namespace PokeWorld.Game
         protected Animation[] _walkAnimation;
         protected Animation _currentAnimation;
         protected Direction _currentDirection;
+        protected IBox _collider;
 
         public Entity(string texturePath, int x, int y)
         {
@@ -40,11 +42,16 @@ namespace PokeWorld.Game
             _walkAnimation[(int)Direction.SW] = new Animation(_texture, 4, 8, 8, (int)Direction.SW);
 
             Face(Direction.S);
+
+            _collider = Collision.World.Create(_x, _y, _texture.width / 4, _texture.height / 8);
         }
 
         public virtual void Update(float dt)
         {
             _currentAnimation.Update(dt);
+
+            _x = _collider.X;
+            _y = _collider.Y;
         }
 
         public virtual void Draw()

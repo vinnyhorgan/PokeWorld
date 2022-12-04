@@ -16,6 +16,8 @@ namespace PokeWorld.Game
             ImguiController imgui = new ImguiController();
             imgui.Load(Window.Width, Window.Height);
 
+            Collision.Init();
+
             StateManager.Switch(new States.Game());
 
             while (!Window.ShouldClose())

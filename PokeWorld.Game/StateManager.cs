@@ -6,7 +6,13 @@
 
         public static void Switch(State state)
         {
+            if (Current != null)
+            {
+                Current.Leave();
+            }
+
             Current = state;
+            Current.Enter();
         }
     }
 }

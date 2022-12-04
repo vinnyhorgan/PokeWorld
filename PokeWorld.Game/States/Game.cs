@@ -1,18 +1,22 @@
-﻿using Raylib_cs;
-using System;
-
-namespace PokeWorld.Game.States
+﻿namespace PokeWorld.Game.States
 {
     class Game : State
     {
+        Player _pika;
+
+        public override void Enter()
+        {
+            _pika = new Player(100, 100);
+        }
+
         public override void Update(float dt)
         {
-            Console.WriteLine("Hello");
+            _pika.Update(dt);
         }
 
         public override void Draw()
         {
-            Raylib.DrawText("X: " + Mouse.Position.X + " Y: " + Mouse.Position.Y, 10, 10, 50, Color.WHITE);
+            _pika.Draw();
         }
     }
 }
